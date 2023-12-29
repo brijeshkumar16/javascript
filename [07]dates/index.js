@@ -20,7 +20,7 @@ console.log(myDate.toJSON()); //Output : 2023-10-09T14:40:58.495Z
 console.log(Date.now()); //Output : 1703679354147
 
 console.log(
-  myDate.toLocaleString('default', {
-    weekday: 'long',
-  })
+    myDate.toLocaleString('default', {
+        weekday: 'long',
+    })
 );

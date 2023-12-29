@@ -1,15 +1,15 @@
 const mySymbol = Symbol('123');
 
 const user = {
-  'full name': 'Brijeshkumar Yadav',
-  age: 20,
-  [mySymbol]: 'mySymbol',
-  location: 'Valsad,Gujarat',
-  email: 'by9714322072@gmail.com',
-  isLoggedIn: false,
-  printDetails: function () {
-    return `User name is ${this['full name']} and his age is ${this.age}`;
-  },
+    'full name': 'Brijeshkumar Yadav',
+    age: 20,
+    [mySymbol]: 'mySymbol',
+    location: 'Valsad,Gujarat',
+    email: 'by9714322072@gmail.com',
+    isLoggedIn: false,
+    printDetails: function () {
+        return `User name is ${this['full name']} and his age is ${this.age}`;
+    },
 };
 
 // 👍 Access the object key with dot operator
