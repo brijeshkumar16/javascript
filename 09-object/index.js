@@ -62,3 +62,8 @@ const user = {
 // console.log(age, email, isLoggedIn);
 
 // console.log(user);
+
+// 👍 for in loop
+for (const key in user) {
+    console.log(user[key]);
+}

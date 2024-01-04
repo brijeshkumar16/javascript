@@ -1,7 +1,6 @@
 const arr = [1, 2, 3, 4, 5, 6];
-const arr2 = [10, 11, 12, 13];
 
-// 👍  access the value from index
+// 👍 access the value from index
 // console.log(arr[0]);
 
 // 👍 push method
@@ -35,6 +34,7 @@ const arr2 = [10, 11, 12, 13];
 
 // 👍 spread method
 //  spread operator for merge two array
+// const arr2 = [10, 11, 12, 13];
 // console.log([...arr, ...arr2]);
 
 // 👍 flat method
@@ -51,3 +51,34 @@ const arr2 = [10, 11, 12, 13];
 // console.log(first, second);
 
 // console.log(arr);
+
+// 👍 for of (loop will work with map and array)
+// for (const item of arr) {
+//     console.log(item);
+// }
+
+// 👍 for in (loop will return index of item)
+// for (const item in arr) {
+//     console.log(item);
+// }
+
+// 👍 foreach (does not return any value)
+// arr.forEach((element, index, arr) => {
+//     console.log(element, index, arr);
+// });
+
+// 👍 filter (return a filter value base on condition)
+// const even = arr.filter((item) => item % 2 === 0);
+// console.log(even);
+
+// 👍 map (return a modified value)
+// const multiplyByTwo = arr.map((item) => item * 2);
+// console.log(multiplyByTwo);
+
+// 👍 chaining
+// const newNum = arr.map((item) => item * 2).filter((item) => item > 3);
+// console.log(newNum);
+
+// 👍 reduce (return the final value)
+// const sum = arr.reduce((acc, current) => acc + current, 0);
+// console.log(sum);
