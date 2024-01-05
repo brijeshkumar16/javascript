@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM Learning</title>
+    </head>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+        }
+    </style>
+    <body>
+        <h1 id="title" class="heading">DOM Learning</h1>
+        <h2>Lorem, ipsum.</h2>
+        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+
+        <!-- <ul>
+            <li class="list-item">One</li>
+            <li class="list-item">Two</li>
+            <li class="list-item">Three</li>
+            <li class="list-item">four</li>
+        </ul> -->
+
+        <ul class="language">
+            <li>JavaScript</li>
+        </ul>
+    </body>
+    <script>
+        // 👍 Id selector
+        // const title = document.getElementById('title');
+        // console.log(title);
+        // console.log(title.id);
+        // console.log(title.className);
+        // console.log(title.getAttribute('id'));
+        // title.setAttribute('class', 'test heading');
+        // title.style.color = 'red';
+        // console.log(title.textContent); // all text will show if it is hide
+        // console.log(title.innerHTML); // It will provide inner html of the content
+        // console.log(title.innerText); //visual text will show
+
+        // 👍 querySelector (Will return only first)
+        // const heading = document.querySelector('h1');
+        // const heading = document.querySelector('#title');
+        // const heading = document.querySelector('.heading');
+        // console.log(heading);
+        // const ul = document.querySelector('ul');
+        // console.log(ul);
+
+        // 👍 querySelectorAll (Will return all value)
+        // const li = document.querySelectorAll('li');
+        // li.forEach((item) => {
+        //     item.style.color = 'red';
+        // });
+        // console.log(li);
+
+        // 👍 getElementsByClassName (Cannot loop)
+        // const allList = document.getElementsByClassName('list-item');
+        // const allListArray = Array.from(allList); // this method use to convert into array
+        // allListArray.forEach((item) => {
+        //     item.style.color = 'red';
+        // });
+        // console.log(allListArray);
+
+        // 👍 Parent and child
+        // const parent = document.querySelector('.parent');
+        // console.log(parent.firstElementChild);
+        // console.log(parent.lastElementChild);
+
+        // const childArray = Array.from(parent.children);
+        // childArray.forEach((element) => {
+        //     console.log(element.innerHTML);
+        // });
+        // console.log(childArray);
+
+        // const monday = document.querySelector('.day');
+        // console.log(monday);
+        // console.log(monday.parentElement);
+        // console.log(monday.nextElementSibling);
+
+        // 👍 Create element
+        const addLanguage = (languageName) => {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(languageName));
+            document.querySelector('.language').appendChild(li);
+        };
+
+        addLanguage('Typescript');
+        addLanguage('Node');
+
+        // 👍 Edit element
+        const second = document.querySelector('li:nth-child(2)');
+        const newLi = document.createElement('li');
+        newLi.appendChild(document.createTextNode('TypeScript'));
+        second.replaceWith(newLi);
+
+        // 👍 Delete element
+        const last = document.querySelector('li:last-child');
+        last.remove();
+    </script>
+</html>
