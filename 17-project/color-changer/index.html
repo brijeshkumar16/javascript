@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Color Changer</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #f0f0f0;
+                color: #000;
+            }
+
+            nav {
+                padding: 10px;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 90vh;
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .box {
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .item {
+                width: 60px;
+                height: 60px;
+                border: 1px solid #fff;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            .item:hover {
+                transform: scale(1.1);
+            }
+
+            .bg-red {
+                background-color: red;
+            }
+
+            .bg-dark {
+                background-color: #212121;
+            }
+
+            .bg-pink {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="../index.html">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+            </a>
+        </nav>
+        <div class="container">
+            <h2>Color Scheme Switcher</h2>
+            <p>Click on a color to change the background</p>
+            <div class="box">
+                <div class="item bg-red" id="red" onclick="changeTheBg('red', 'red')"></div>
+                <div class="item bg-dark" id="dark" onclick="changeTheBg('#212121', 'dark')"></div>
+                <div class="item bg-pink" id="pink" onclick="changeTheBg('pink', 'pink')"></div>
+            </div>
+        </div>
+        <script>
+            const changeTheBg = (color, id) => {
+                document.body.style.backgroundColor = color;
+                const allItem = document.querySelectorAll('.box .item');
+                allItem.forEach((item) => {
+                    if (item.id === id) {
+                        item.style.transform = 'scale(1.1)';
+                    } else {
+                        item.style.transform = 'scale(1)';
+                    }
+                });
+            };
+        </script>
+    </body>
+</html>

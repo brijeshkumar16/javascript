@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BMI Calculator</title>
+    </head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+
+        nav {
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90vh;
+        }
+
+        .wrapper {
+            max-width: 450px;
+            padding: 20px;
+            border: 1px solid #00bcd4;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-input {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .bmi-weight-guide {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+    <body>
+        <nav>
+            <a href="../index.html">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+            </a>
+        </nav>
+
+        <div class="container">
+            <div class="wrapper">
+                <h2 class="title">BMI Calculator</h2>
+                <form>
+                    <div class="form-input">
+                        <div>
+                            <label for="height"> Height in CM:</label>
+                        </div>
+                        <div>
+                            <input type="number" min="1" id="height" placeholder="Height in CM" />
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div>
+                            <label for="weight"> Weight in KG:</label>
+                        </div>
+                        <div>
+                            <input type="number" min="1" id="weight" placeholder="Height in CM" />
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit">Calculate</button>
+                    </div>
+                </form>
+
+                <div class="result"></div>
+
+                <div class="bmi-weight-guide">
+                    <h2 class="title text-center">BMI Calculator</h2>
+                    <p>Under Weight = less then 18.6</p>
+                    <p>Normal Weight Range = less then 18.6 and 24.9</p>
+                    <p>Overweight = Greater then 24.9</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const form = document.querySelector('form');
+            const height = document.querySelector('#height');
+            const weight = document.querySelector('#weight');
+            const result = document.querySelector('.result');
+            let heightValue = 0;
+            let weightValue = 0;
+
+            height.addEventListener('change', (e) => {
+                heightValue = Number(e.target.value);
+            });
+            weight.addEventListener('change', (e) => {
+                weightValue = Number(e.target.value);
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!heightValue) {
+                    result.innerHTML = 'Height value is required';
+                } else if (!weightValue) {
+                    result.innerHTML = 'Weight value is required';
+                } else {
+                    const bmi = (weightValue / ((heightValue * heightValue) / 10000)).toFixed(2);
+                    if (bmi < 18.6) {
+                        result.innerHTML = `Under Weight : ${bmi}`;
+                    } else if (bmi >= 18.6 && bmi <= 24.9) {
+                        result.innerHTML = `Normal Weight : ${bmi}`;
+                    } else {
+                        result.innerHTML = `Overweight : ${bmi}`;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
