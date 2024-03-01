@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="search-input" placeholder="Search..." />
+    </div>
+
+    <script>
+      const search = document.getElementById('search-input');
+
+      const getData = () => {
+        console.log('Get Data');
+      };
+
+      const debounce = (fun, time) => {
+        let timer;
+        return () => {
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(() => {
+            fun();
+          }, time);
+        };
+      };
+
+      search.addEventListener('input', debounce(getData, 1000));
+    </script>
+  </body>
+</html>
